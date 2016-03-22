@@ -13,6 +13,9 @@ router.post('/register', function(req,res,next) {
 router.post('/verify', function(req,res,next) {
 
 });
+router.get('/getUser', function(req,res,next) {
 
+
+});
 
 module.exports = router;
