@@ -1,20 +1,17 @@
 angular.module('signUp', [])
-  .controller('mainCtrl', mainCtrl);
-
-function mainCtrl ($scope, $http) {
- 
+  .controller('mainCtrl', [
+    '$scope', '$http',
+    function ($scope, $http) {
+  $scope.username = "";
+  $scope.password = "";
+  $scope.confirm = "";
   $scope.user = {
-  	user: $scope.username,
-  	password: $scope.password,
-  	confirm: $scope.confirm
+  	name: $scope.username,
+  	password: $scope.password
   }
 
   $scope.register = function(){
-  	if($scope.password != $scope.confirm){
-  		alert("Passwords don't match");
-  		return;
-  	}
-  	$http.get('/getUser')
-  }
+    console.log("Trying to register");
+  };
 
-}
+}])
