@@ -6,8 +6,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src='javascripts/login.js'></script>
 </head>
-<body>
+<body ng-app='login' ng-controller='LoginCtrl'>
 	<div class="header">
 		<a href="index.html"><div class="logo"><i class="fa fa-file"></i> File Sharing</div></a>
 		<div class="nav-bar"></div>
@@ -16,9 +17,9 @@
 		Shared under CC Attribution 2.0 Generic (CC BY 2.0) -->
 	<div class="main">
 		<div class="main-text">Welcome back!</div>
-		<div class="signup-form-element">Username: <input type="text" name="username"></div>
-		<div class="signup-form-element">Password: <input type="password" name="password"></div>
-		<div class="login-button">Log in</div>
+		<div class="signup-form-element">Username(Email): <input type="text" ng-model="username"></div>
+		<div class="signup-form-element">Password: <input type="password" ng-model="password"></div>
+		<div class="login-button" ng-click="login()">Log in</div>
 	</div>
 	<div class="footer">Copyright info</div>
 </body>

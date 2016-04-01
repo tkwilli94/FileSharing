@@ -11,13 +11,13 @@ module.exports = function(passport) {
 
     /* GET home page. */
     router.get('/', isLoggedin, function(req, res) {
-        res.sendfile('views/index.html');
+        res.sendfile('views/home.html');
     });
 
     /*Handle Login POST */
-    router.post('login', passport.authenticate('login', {
+    router.post('/login', passport.authenticate('login', {
         successRedirect: '/',
-        failureRedirect: '/'
+        failureRedirect: '/login'
     }));
 
     /* GET signup page. */

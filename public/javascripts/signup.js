@@ -1,16 +1,9 @@
 angular.module('signUp', [])
-  .controller('MainCtrl', mainCtrl);
+  .controller('SignupCtrl', signupCtrl);
 
-function mainCtrl ($scope, $http) {
- 
-/*  $scope.user = {
-  	user: $scope.username,
-  	password: $scope.password,
-  	confirm: $scope.confirm
-  }*/
+function signupCtrl ($scope, $http) {
 
   $scope.register = function(){
-    console.log("I'm here!");
     console.log("Username: " + $scope.username);
     console.log("Password: " + $scope.password);
     console.log("Confirm: " + $scope.confirm);
@@ -29,7 +22,8 @@ function mainCtrl ($scope, $http) {
       return;
     }
     else {
-      $http.get('/getUser')
+      var data = JSON.stringify({"username": $scope.username, "password": $scope.password});
+      $http.post('/signup', data);
     }
   }
 }
