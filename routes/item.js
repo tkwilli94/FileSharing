@@ -1,6 +1,4 @@
-var express = require('express');
-var router = express.Router();
-
+/*
 router.post('/createItem', function(req,res,next) {
 
 
@@ -21,8 +19,12 @@ router.post('/release', function(req,res,next) {
 
 
 router.get('/searchItems', function(req,res,next) {
-
+ console.log('log');
 });
+*/
+global.get_searchItems = function(req, res) {
+    console.log("searchItems");
 
 
-module.exports = router;
+};
+console.log("item included.");

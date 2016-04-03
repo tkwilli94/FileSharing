@@ -15,33 +15,22 @@ module.exports = function(passport) {
     });
 
     /*Handle Login POST */
-    router.post('/login', passport.authenticate('login', {
-        successRedirect: '/',
-        failureRedirect: '/login'
-    }));
+    router.post('/login', post_login(passport));
 
     /* GET signup page. */
-    router.get('/signup', function(req, res) {
-        res.sendfile('views/signup.html');
-    });
+    router.get('/signup', get_signup);
 
     /* Handle Registration POST */
-    router.post('/signup', passport.authenticate('signup', {
-        successRedirect: '/',
-        failureRedirect: '/signup'
-    }));
+    router.post('/signup', post_signup(passport));
 
     /* GET login page. */
-    router.get('/login', function(req, res, next) {
-        res.sendfile('views/login.html');
-    });
+    router.get('/login', get_login);
 
     /* Handle Logout */
-    router.get('/signout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
-
+    router.get('/signout', get_signout);
+     
+    router.get('/searchItems', get_searchItems);
+    
     return router;
 }
 

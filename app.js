@@ -43,7 +43,15 @@ app.use(passport.session());
 var initPassport = require('./passport/init');
 initPassport(passport);
 
+
+require('./routes/item');
+require('./routes/group');
+require('./routes/users');
+require('./routes/login');
+
 var routes = require('./routes/index')(passport);
+
+
 app.use('/', routes);
 
 

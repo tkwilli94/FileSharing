@@ -1,21 +1,31 @@
-var express = require('express');
-var router = express.Router();
+global.post_login = function(passport) {
+  return  passport.authenticate('login', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+    });
+};
 
-router.post('/login', function(req,res,next) {
+global.get_signup = function(req,res) {
+ res.sendfile('views/signup.html');
+};
+global.post_signup = function(passport) {
+  return passport.authenticate('signup', {
+        successRedirect: '/',
+        failureRedirect: '/signup'
+    });
+};
 
-});
-router.post('/logout', function(req,res,next) {
-
-});
-router.post('/register', function(req,res,next) {
-
-});
-router.post('/verify', function(req,res,next) {
-
-});
-router.get('/getUser', function(req,res,next) {
+global.get_login = function(req,res,next) {
+   res.sendfile('views/login.html');
 
 
-});
+};
 
-module.exports = router;
+global.get_signout = function(req, res) {
+        req.logout();
+        res.redirect('/');
+    };
+
+
+
+console.log('login included.');
