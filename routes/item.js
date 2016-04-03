@@ -1,27 +1,19 @@
-/*
-router.post('/createItem', function(req,res,next) {
+global.post_createItem  = function(req,res,next) {
 
+};
+global.post_updateItem  = function(req,res,next) {
 
-});
-router.post('/updateItem', function(req,res,next) {
+};
+global.post_deleteItem = function(req,res,next) {
 
+};
+global.post_download = function(req,res,next) {
 
-});
-router.post('/deleteItem', function(req,res,next) {
+};
+global.post_release = function(req,res,next) {
 
-});
-router.post('/download', function(req,res,next) {
+};
 
-});
-router.post('/release', function(req,res,next) {
-
-});
-
-
-router.get('/searchItems', function(req,res,next) {
- console.log('log');
-});
-*/
 global.get_searchItems = function(req, res) {
     console.log("searchItems");
 

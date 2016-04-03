@@ -14,6 +14,8 @@ module.exports = function(passport) {
         res.sendfile('views/home.html');
     });
 
+    /******LOGIN STUFF******/
+
     /*Handle Login POST */
     router.post('/login', post_login(passport));
 
@@ -27,10 +29,27 @@ module.exports = function(passport) {
     router.get('/login', get_login);
 
     /* Handle Logout */
-    router.get('/signout', get_signout);
-     
-    router.get('/searchItems', get_searchItems);
+    router.get('/signout', get_signout); 
+
+    /*****ITEM MANAGEMENT******/
     
+    router.get('/searchItems', get_searchItems);
+    router.post('/createItem', post_createItem);
+    router.post('/updateItem', post_updateItem);
+    router.post('/deleteItem', post_deleteItem);
+    router.post('/download', post_download);
+    router.post('/release', post_release);
+    
+    /*****GROUP MANAGEMENT*****/
+
+    router.post('/createGroup', post_createGroup);
+    /* Adds a user to a group */
+    router.post('/addToGroup', post_addToGroup);
+    router.post('/removeFromGroup', post_removeFromGroup);
+    router.post('/deleteGroup', post_deleteGroup);
+    router.get('/getGroups', get_getGroups);
+    
+
     return router;
 }
 
