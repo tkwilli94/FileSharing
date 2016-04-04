@@ -19,8 +19,6 @@ global.post_signup_redirect = function(req, res){
 
 global.get_login = function(req,res,next) {
    res.sendfile('views/login.html');
-
-
 };
 
 global.get_signout = function(req, res) {

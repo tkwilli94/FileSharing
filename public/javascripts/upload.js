@@ -7,8 +7,10 @@ angular.module('upload', [])
     {id : '0', name: 'CS360'},
     {id : '1', name: 'CS340'}
   ];
-  
+
   $scope.uploadFile = function(){
+    var file = $scope.fileToUpload;
+    console.dir(file);
     console.log("hello world");
   }
 
