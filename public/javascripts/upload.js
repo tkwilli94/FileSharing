@@ -12,6 +12,14 @@ angular.module('upload', [])
     var file = $scope.fileToUpload;
     console.dir(file);
     console.log("hello world");
+    var fd = new FormData();
+    fd.append('file', file);
+    $http.post('/createItem', fd, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+    }).success(function(){
+    }).error(function(){
+    });
   }
 
 }])
