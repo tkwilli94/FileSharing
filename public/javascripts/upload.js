@@ -17,8 +17,10 @@ angular.module('upload', [])
     $http.post('/createItem', fd, {
         transformRequest: angular.identity,
         headers: {'Content-Type': undefined}
-    }).success(function(){
-    }).error(function(){
+    }).success(function(e){
+        console.log(e);
+    }).error(function(e){
+        console.log(e);
     });
   }
 
