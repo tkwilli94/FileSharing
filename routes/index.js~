@@ -11,7 +11,7 @@ module.exports = function(passport) {
 
     /* GET home page. */
     router.get('/', isLoggedin, function(req, res) {
-        res.sendfile('views/upload.html');
+        res.sendfile('views/home.html');
     });
 
     /******LOGIN STUFF******/
