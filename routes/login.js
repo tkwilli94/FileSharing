@@ -1,6 +1,6 @@
 global.post_login = function(passport) {
   return  passport.authenticate('login', {
-        failureRedirect: res.redirect('/login')
+        failureRedirect: '/login'
     });
 };
 
@@ -9,7 +9,7 @@ global.get_signup = function(req,res) {
 };
 global.post_signup = function(passport) {
   return passport.authenticate('signup', {
-        failureRedirect: res.redirect('/signup')
+        failureRedirect: '/signup'
     });
 };
 
