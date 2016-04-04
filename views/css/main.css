@@ -137,3 +137,21 @@ a {
 	font-size: 30px;
 	display: block;
 }
+
+.upload-content {
+	height: 100%;
+	width: 100%;
+}
+
+.file-hierarchy {
+	height: 100%;
+	width: 29%;
+	border-right: 2px black solid;
+	display: inline-block;
+}
+
+.upload-area {
+	height: 100%;
+	width: 70%;
+	display: inline-block;
+}
