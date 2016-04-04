@@ -1,7 +1,7 @@
 global.post_login = function(passport) {
   return  passport.authenticate('login', {
-        successRedirect: '/',
-        failureRedirect: '/login'
+        successRedirect: res.redirect('/'),
+        failureRedirect: res.redirect('/login')
     });
 };
 
@@ -10,8 +10,8 @@ global.get_signup = function(req,res) {
 };
 global.post_signup = function(passport) {
   return passport.authenticate('signup', {
-        successRedirect: '/',
-        failureRedirect: '/signup'
+        successRedirect: res.redirect('/'),
+        failureRedirect: res.redirect('/signup')
     });
 };
 
