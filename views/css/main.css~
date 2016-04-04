@@ -138,12 +138,6 @@ a {
 	display: block;
 }
 
-.upload-form-element {
-	color: black;
-	font-size: 30px;
-	display: block;
-}
-
 .upload-content {
 	height: 100%;
 	width: 100%;
