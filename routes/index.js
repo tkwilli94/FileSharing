@@ -17,13 +17,13 @@ module.exports = function(passport) {
     /******LOGIN STUFF******/
 
     /*Handle Login POST */
-    router.post('/login', post_login(passport));
+    router.post('/login', post_login(passport), post_signup_redirect);
 
     /* GET signup page. */
     router.get('/signup', get_signup);
 
     /* Handle Registration POST */
-    router.post('/signup', post_signup(passport));
+    router.post('/signup', post_signup(passport), post_signup_redirect);
 
     /* GET login page. */
     router.get('/login', get_login);
