@@ -17,7 +17,14 @@ module.exports = function(passport) {
     /******LOGIN STUFF******/
 
     /*Handle Login POST */
-    router.post('/login', post_login(passport));
+<<<<<<< HEAD
+    router.post('/login', post_login(passport);
+=======
+    router.post('/login', passport.authenticate('login', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+    });
+>>>>>>> c213f4e8eb999e728649f78f91a96dc71f15b827
 
     /* GET signup page. */
     router.get('/signup', get_signup);
