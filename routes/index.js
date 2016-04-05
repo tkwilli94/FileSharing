@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var isLoggedin = function (req, res, next) {
-    console.log(next)
     if (req.isAuthenticated())
         return next();
+    console.log("Hi");
     res.sendfile('views/index.html');
 }
 
