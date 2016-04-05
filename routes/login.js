@@ -1,7 +1,7 @@
 global.post_login = function(passport) {
   console.log("pre-return");
   return  passport.authenticate('login', {
-        successRedirect: '/',
+        successRedirect: '/upload.html',
         failureRedirect: '/login'
     });
 };
@@ -12,7 +12,7 @@ global.get_signup = function(req,res) {
 
 global.post_signup = function(passport) {
   return passport.authenticate('signup', {
-        successRedirect: '/',
+        successRedirect: '/upload.html',
         failureRedirect: '/signup'
     });
 };

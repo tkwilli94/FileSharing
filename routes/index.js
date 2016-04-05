@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var isLoggedin = function (req, res, next) {
+    console.log('IN ISLOGGEDIN FUNCTION');
     if (req.isAuthenticated())
         return next();
     console.log("Hi");
@@ -16,18 +17,23 @@ module.exports = function(passport) {
     });
 
     /******LOGIN STUFF******/
-
-    /*Handle Login POST*/
-    router.post('/login', passport.authenticate('login', {
-        successRedirect: '/',
-        failureRedirect: '/login'
-    }));
+    /*Handle Login POST */
+    router.post('/login', passport.authenticate('login'),
+      function(req, res, next) {
+        console.log('In POST');
+	res.redirect('/');
+      }
+    );
 
     /* GET signup page. */
     router.get('/signup', get_signup);
 
     /* Handle Registration POST */
-    router.post('/signup', post_signup(passport));
+    router.post('/signup', post_signup(passport),
+      function(req, res) {
+        res.sendfile('views/upload.html');
+      }
+    );
 
     /* GET login page. */
     router.get('/login', get_login);
