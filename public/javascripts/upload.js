@@ -10,7 +10,8 @@ angular.module('upload', [])
 
   $scope.uploadFile = function(){
     var file = $scope.fileToUpload;
-    var data = JSON.stringify({"filename": $scope.fileName, "group": $scope.groups, "location": $scope.location});
+    var data = JSON.stringify({"filename": $scope.fileName, "group": $scope.selectedGroup, 
+      "location": $scope.location, "copies":$scope.copies});
     console.log(data);
     $http.post('/createItem', data);
   }
