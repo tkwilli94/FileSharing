@@ -1,11 +1,7 @@
 var fs = require('fs');
 
 global.post_createItem  = function(req,res,next) {
-   var dir = './tmp';
-   console.log("creating directory")   	
-   fs.mkdirSync(dir, function(err){console.log(err)});
    console.log(req.body);
-
 };
 global.post_updateItem  = function(req,res,next) {
   console.log(req.body);
