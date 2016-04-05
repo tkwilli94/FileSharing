@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var isLoggedin = function (req, res, next) {
+var isLoggedin = function (req, res, next){}
     if (req.isAuthenticated())
         return next();
     console.log("Hi");
