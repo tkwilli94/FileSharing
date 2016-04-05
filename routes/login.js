@@ -1,5 +1,6 @@
 global.post_login = function(passport) {
   return  passport.authenticate('login', {
+        successRedirect: '/',
         failureRedirect: '/login'
     });
 };
