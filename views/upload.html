@@ -32,6 +32,9 @@
 			Location
 			Tags -->
 			<div class="signup-button" ng-click='uploadFile()'>Upload</div>
+			<form enctype="multipart/form-data" action="/createItem" method="post">
+    			<input id="image-file" type="file" />
+			</form>
 		</div>
 	<div class="footer">Copyright info</div>
 </body>
