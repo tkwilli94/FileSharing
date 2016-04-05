@@ -32,7 +32,8 @@ global.post_release = function(req,res,next) {
 };
 
 global.get_searchItems = function(req, res) {
-    console.log("searchItems");
-
-
+    File.find(function(err, files){
+    if(err){ return next(err); }
+    res.json(files);
+  });
 };
