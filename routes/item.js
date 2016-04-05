@@ -1,5 +1,12 @@
+var fs = require('fs');
+
 global.post_createItem  = function(req,res,next) {
+	var dir = './tmp';
+	if (!fs.existsSync(dir)){
+   		fs.mkdirSync(dir);
+	}
    console.log(req.body);
+
 };
 global.post_updateItem  = function(req,res,next) {
   console.log(req.body);
