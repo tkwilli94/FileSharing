@@ -13,7 +13,7 @@ global.post_createItem  = function(req,res,next) {
             console.log('Error in Saving file: '+err);
             throw err;
         }
-        console.log('File Registration succesful');
+        console.log('File Registration succesful' + newFile);
     });
 };
 global.post_updateItem  = function(req,res,next) {
