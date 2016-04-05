@@ -1,10 +1,9 @@
 var fs = require('fs');
 
 global.post_createItem  = function(req,res,next) {
-	var dir = './tmp';
-	if (!fs.existsSync(dir)){
-   		fs.mkdirSync(dir);
-	}
+   var dir = './tmp';
+   console.log("creating directory")   	
+   fs.mkdirSync(dir, function(err){console.log(err)});
    console.log(req.body);
 
 };
