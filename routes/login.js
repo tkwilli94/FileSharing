@@ -1,4 +1,5 @@
 global.post_login = function(passport) {
+  console.log("pre-return");
   return  passport.authenticate('login', {
         successRedirect: '/',
         failureRedirect: '/login'
@@ -8,15 +9,13 @@ global.post_login = function(passport) {
 global.get_signup = function(req,res) {
  res.sendfile('views/signup.html');
 };
+
 global.post_signup = function(passport) {
   return passport.authenticate('signup', {
+        successRedirect: '/',
         failureRedirect: '/signup'
     });
 };
-
-global.post_signup_redirect = function(req, res){
-  res.redirect('/');
-}
 
 global.get_login = function(req,res,next) {
    res.sendfile('views/login.html');
