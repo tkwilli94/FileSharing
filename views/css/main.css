@@ -139,9 +139,9 @@ a {
 }
 
 .upload-form-element {
-	color: black;
 	font-size: 30px;
 	display: block;
+	position: relative;
 }
 
 .upload-content {
@@ -153,7 +153,7 @@ a {
 	height: 100%;
 	width: 29%;
 	border-right: 2px black solid;
-	display: inline-block;
+	float: left;
 }
 
 .upload-area {
