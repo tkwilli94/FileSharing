@@ -28,4 +28,3 @@ global.get_signout = function(req, res) {
 
 
 
-console.log('login included.');
