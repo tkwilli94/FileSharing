@@ -4,10 +4,12 @@ var File = require('../models/file');
 global.post_createItem  = function(req,res,next) {
    var newFile = new File();
    console.log(req.body);
-   newFile.filename = req.filename;
-   fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)});
-   newFile.location = req.location;
-   newFile.copies = req.copies;
+   newFile.filename = req.body.filename;
+   if(!fs.existsSync("./files/" + req.session.passport.user)){}
+   		fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)})
+   }
+   newFile.location = req.body.location;
+   newFile.copies = req.body.copies;
    newFile.save(function(err) {
         if (err){
             console.log('Error in Saving file: '+err);
