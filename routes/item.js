@@ -7,7 +7,7 @@ global.post_createItem  = function(req,res,next) {
    var newFile = new File();
 
    newFile.filename = req.filename;
-   newFile.path = "../files/" + req.session.username "/" +req.filename;
+   newFile.path = "../files/" + req.session.username + "/" +req.filename;
    fs.mkdir(req.session.username);
    newFile.location = req.location;
    newFile.copies = req.copies;
