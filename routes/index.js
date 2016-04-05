@@ -1,27 +1,33 @@
 var express = require('express');
 var router = express.Router();
 
+<<<<<<< HEAD
 var isLoggedin = function (req, res, next){}
+=======
+var isLoggedin = function (req, res, next) {
+console.log(next.toString())
+>>>>>>> a55d301864081c9645033b93349f4d9fbb513e83
     if (req.isAuthenticated())
         return next();
     console.log("Hi");
-    res.sendfile('views/index.html');
+    res.sendFile('/index.html', {root: "views"});
 }
 
 module.exports = function(passport) {
-
-    /* GET home page. */
-    router.get('/', isLoggedin, function(req, res) {
-        res.sendfile('views/upload.html');
-    });
-
-    /******LOGIN STUFF******/
 
     /*Handle Login POST*/
     router.post('/login', passport.authenticate('login', {
         successRedirect: '/',
         failureRedirect: '/login'
     }));
+    /* GET home page. */
+    router.get('/', isLoggedin, function(req, res) {
+console.log("trying to send upload.html")
+        res.sendFile('/upload.html', {root: "views"});
+    });
+
+    /******LOGIN STUFF******/
+
 
     /* GET signup page. */
     router.get('/signup', get_signup);
