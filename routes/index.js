@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-<<<<<<< HEAD
+
 var isLoggedin = function (req, res, next){}
-=======
+
 var isLoggedin = function (req, res, next) {
 console.log(next.toString())
->>>>>>> a55d301864081c9645033b93349f4d9fbb513e83
+
     if (req.isAuthenticated())
         return next();
     console.log("Hi");
