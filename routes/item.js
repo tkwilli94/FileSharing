@@ -5,7 +5,7 @@ global.post_createItem  = function(req,res,next) {
    var newFile = new File();
    console.log(req.body);
    newFile.filename = req.body.filename;
-   if(!fs.existsSync("./files/" + req.session.passport.user)){}
+   if(!fs.existsSync("./files/" + req.session.passport.user)){
    		fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)})
    }
    newFile.location = req.body.location;
