@@ -5,7 +5,6 @@ global.post_createItem  = function(req,res,next) {
    var newFile = new File();
    console.log(req.body);
    newFile.filename = req.filename;
-   newFile.path = "../files/" + req.session.passport.user + "/" +req.filename;
    fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)});
    newFile.location = req.location;
    newFile.copies = req.copies;
