@@ -2,10 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 var isLoggedin = function (req, res, next) {
-    console.log('IN ISLOGGEDIN FUNCTION');
-    if (req.isAuthenticated())
+    if (req.isAuthenticated()){
         return next();
-    console.log("Hi");
+    }
     res.sendfile('views/index.html');
 }
 
@@ -13,27 +12,24 @@ module.exports = function(passport) {
 
     /* GET home page. */
     router.get('/', isLoggedin, function(req, res) {
+     res.sendfile('views/upload.html');
+    });
+
+    /* GET home page. */
+    router.post('/', isLoggedin, function(req, res) {
         res.sendfile('views/upload.html');
     });
 
+
     /******LOGIN STUFF******/
     /*Handle Login POST */
-    router.post('/login', passport.authenticate('login'),
-      function(req, res, next) {
-        console.log('In POST');
-	res.redirect('/');
-      }
-    );
+    router.post('/login', passport.authenticate('login', {failureRedirect: '/login', successRedirect: '/'}));
 
     /* GET signup page. */
     router.get('/signup', get_signup);
 
     /* Handle Registration POST */
-    router.post('/signup', post_signup(passport),
-      function(req, res) {
-        res.sendfile('views/upload.html');
-      }
-    );
+    router.post('/signup', passport.authenticate('signup', {failureRedirect: '/signup', successRedirect: "/"}));
 
     /* GET login page. */
     router.get('/login', get_login);

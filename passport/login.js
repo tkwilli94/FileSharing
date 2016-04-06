@@ -16,7 +16,7 @@ passport.use('login', new LocalStrategy({
                     return done(err);
                 // Username does not exist, log the error and redirect back
                 if (!user){
-                    console.log('User Not Found with username '+username);
+                    console.log('User Not Found with username '+ username);
                     return done(null, false, req.flash('message', 'User Not found.'));
                 }
                 // User exists but wrong password, log the error 

@@ -1,7 +1,7 @@
 angular.module('login', [])
   .controller('LoginCtrl', loginCtrl);
 
-function loginCtrl ($scope, $http) {
+function loginCtrl ($scope, $http, $window) {
 
   $scope.login = function(){
     console.log("Username: " + $scope.username);
@@ -18,7 +18,14 @@ function loginCtrl ($scope, $http) {
     }
     else {
       var data = JSON.stringify({"username": $scope.username, "password": $scope.password});
-      $http.post('/login', data);
+      $http.post('/login', data).then(
+        function(response) { 
+          $window.location.href = '/'; 
+        },
+        function (response) { 
+          $window.location.href = '/login';
+        }
+      );
     }
   }
 }

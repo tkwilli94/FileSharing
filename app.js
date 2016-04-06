@@ -1,3 +1,4 @@
+
 var flash = require('connect-flash');
 var express = require('express');
 var path = require('path');
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fileSharing');
+
 // Configuring Passport
 var passport = require('passport');
 var expressSession = require('express-session');
@@ -50,11 +52,6 @@ require('./routes/users');
 require('./routes/login');
 
 var routes = require('./routes/index')(passport);
-
-
-app.use('/', routes);
-
-
 app.use('/', routes);
 
 // catch 404 and forward to error handler

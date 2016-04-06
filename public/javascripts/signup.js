@@ -1,7 +1,7 @@
 angular.module('signUp', [])
   .controller('SignupCtrl', signupCtrl);
 
-function signupCtrl ($scope, $http) {
+function signupCtrl ($scope, $http, $window) {
 
   $scope.register = function(){
     console.log("Username: " + $scope.username);
@@ -23,7 +23,14 @@ function signupCtrl ($scope, $http) {
     }
     else {
       var data = JSON.stringify({"username": $scope.username, "password": $scope.password});
-      $http.post('/signup', data);
+      $http.post('/signup', data).then(
+        function(response) { 
+          $window.location.href = '/'; 
+        },
+        function (response) { 
+          $window.location.href = '/signup';
+        }
+      );
     }
   }
 }
