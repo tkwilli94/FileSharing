@@ -161,3 +161,8 @@ a {
 	width: 70%;
 	display: inline-block;
 }
+
+.explainer {
+  display: inline-block;
+  font-size: 12px;
+}

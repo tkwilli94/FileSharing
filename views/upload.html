@@ -18,9 +18,10 @@
 	<div class="upload-content">
 		<div class="file-hierarchy">files go here</div>
 		<div class="upload-area">
-			<div class="upload-form-element">File Name: <input type="text" ng-model="fileName"></div>
+			<div class="upload-form-element">File Name: <input type="text" ng-model="fileName"><span class="explainer">Leave blank if no file</span></div>
 			<div class="upload-form-element">Location: <input type="text" ng-model="location"></div>
-			<div class="upload-form-element">Available Copies: <input type="text" ng-model="copies"></div>
+			<div class="upload-form-element">Available Copies: <input type="text" ng-model="copies"><span class="explainer">Leave blank if unlimited</span></div>
+                        <div class="upload-form-element">Description: <input type="text" ng-model="description"></div>
 			<div class="upload-form-element"><input type="file" file-model="fileToUpload"></div>
 			<div class="upload-form-element">
 				<select name="groups" id="groups" ng-model="selectedGroup">

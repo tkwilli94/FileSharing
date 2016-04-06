@@ -10,6 +10,7 @@ global.post_createItem  = function(req,res,next) {
    }
    newFile.location = req.body.location;
    newFile.copies = req.body.copies;
+   newFile.description = req.body.description;
    newFile.save(function(err) {
         if (err){
             console.log('Error in Saving file: '+err);
