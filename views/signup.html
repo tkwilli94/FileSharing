@@ -17,9 +17,20 @@
 		Shared under CC Attribution 2.0 Generic (CC BY 2.0) -->
 	<div class="main">
 		<div class="main-text">Sign up and start sharing today</div>
-		<div class="signup-form-element">Username (Email): <input type="text" ng-model="username"></div>
-		<div class="signup-form-element">Password: <input type="password" ng-model="password"></div>
-		<div class="signup-form-element">Confirm: <input type="password" ng-model="confirm"></div>
+		<table class="signup-table">
+			<tr>
+				<td><div class="signup-form-element">Username (Email):</div></td>
+				<td><input type="text" ng-model="username"></td>
+			</tr>
+			<tr>
+				<td><div class="signup-form-element">Password:</div></td>
+				<td><input type="password" ng-model="password"></td>
+			</tr>
+			<tr>
+				<td><div class="signup-form-element">Confirm:</div></td>
+				<td><input type="password" ng-model="confirm"></td>
+			</tr>
+		</table>
 		<div class="signup-button" ng-click="register()">Sign up</div>
 	</div>
 	<div class="footer">Copyright info</div>

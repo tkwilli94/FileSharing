@@ -148,6 +148,7 @@ a {
 
 .form-box {
 	font-size: 20px;
+	float: right;
 }
 
 .upload-content {
@@ -175,4 +176,12 @@ a {
 
 .area-content {
 	margin: 20px;
+}
+
+td {
+	padding-right: 20px;
+}
+
+table.signup-table {
+	margin: auto;
 }
