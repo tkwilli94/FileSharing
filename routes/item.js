@@ -9,6 +9,7 @@ global.post_createItem  = function(req,res,next) {
    		fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)})
    }
    newFile.location = req.body.location;
+   newFile.owner = req.session.passport.user;
    newFile.copies = req.body.copies;
    newFile.description = req.body.description;
    newFile.save(function(err) {
@@ -33,7 +34,7 @@ global.post_release = function(req,res,next) {
 };
 
 global.get_searchItems = function(req, res) {
-    File.find(function(err, files){
+    File.find({ 'owner' : req.session.passport.user}, function(err, files){
     if(err){ return next(err); }
     res.json(files);
   });
