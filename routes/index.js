@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
+
+var isLoggedin = function (req, res, next){}
+
 var isLoggedin = function (req, res, next) {
     if (req.isAuthenticated()){
         return next();
@@ -10,6 +13,11 @@ var isLoggedin = function (req, res, next) {
 
 module.exports = function(passport) {
 
+    /*Handle Login POST*/
+    router.post('/login', passport.authenticate('login', {
+        successRedirect: '/',
+        failureRedirect: '/login'
+    }));
     /* GET home page. */
     router.get('/', isLoggedin, function(req, res) {
      res.sendfile('views/upload.html');
