@@ -66,6 +66,7 @@ a {
 	width: 175px;
 	display: inline-block;
 	margin: 20px;
+	text-align: center;
 }
 
 .signup-button:hover {
@@ -142,6 +143,11 @@ a {
 	font-size: 30px;
 	display: block;
 	position: relative;
+	line-height: 45px;
+}
+
+.form-box {
+	font-size: 20px;
 }
 
 .upload-content {
@@ -165,4 +171,8 @@ a {
 .explainer {
   display: inline-block;
   font-size: 12px;
+}
+
+.area-content {
+	margin: 20px;
 }
