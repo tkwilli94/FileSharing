@@ -16,11 +16,19 @@
 	<!-- Image by Alan Levine (https://www.flickr.com/photos/cogdog/)
 		Shared under CC Attribution 2.0 Generic (CC BY 2.0) -->
 	<div class="upload-content">
-		<div class="file-hierarchy">files go here</div>
+		<div class="file-hierarchy">
+			<div ng-repeat="file in files">
+				Document Name: {{file.documentname}}<br>
+				Location: {{file.location}}<br>
+				Copies Available: {{file.copies}}<br>
+				Description: {{file.description}}<br>
+			</div>
+		</div>
 		<div class="upload-area">
 			<div class="area-content">
-				<div class="upload-form-element">File Name: <input class="form-box" type="text" ng-model="fileName"><span class="explainer">Leave blank if no file</span></div>
-				<div class="upload-form-element">Location: <input class="form-box" type="text" ng-model="location"></div>
+				<div class="upload-form-element">Document Name: <input class="form-box" type="text" ng-model="documentName"></div>
+				<div class="upload-form-element">File Name: <input class="form-box" type="text" ng-model="fileName"><span class="explainer">Leave blank if no file</span></div>			
+	<div class="upload-form-element">Location: <input class="form-box" type="text" ng-model="location"></div>
 				<div class="upload-form-element">Available Copies: <input class="form-box" type="text" ng-model="copies"><span class="explainer">Leave blank if unlimited</span></div>
 	                        <div class="upload-form-element">Description: <input class="form-box" type="text" ng-model="description"></div>
 				<div class="upload-form-element"><input type="file" file-model="fileToUpload"></div>

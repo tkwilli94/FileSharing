@@ -8,6 +8,7 @@ global.post_createItem  = function(req,res,next) {
    if(!fs.existsSync("./files/" + req.session.passport.user)){
    		fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)})
    }
+   newFile.documentname = req.body.documentname;
    newFile.location = req.body.location;
    newFile.owner = req.session.passport.user;
    newFile.copies = req.body.copies;
