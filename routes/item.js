@@ -1,5 +1,6 @@
 var fs = require('fs');
 var File = require('../models/file');
+var mime = require('mime');
 
 global.post_createItem  = function(req,res,next) {
    var newFile = new File();
@@ -30,19 +31,14 @@ global.post_deleteItem = function(req,res,next) {
 };
 global.post_download = function(req,res,next) {
   console.log(req.body);
-  var fileName = "./uploads/" + req.body.filename;
-  console.log(fileName);
-  fs.readFile(fileName, function(err, content){
-    if(err){
-      console.log("error");
-      res.writeHead(500);
-      res.end();
-    }else{
-      res.writeHead(200, {'Content-Type' : undefined});
-      res.end(content);
-    }
-  })
-  console.log("Tried to pipe file");
+  var fileName = "/home/bitnami/FileSharing/uploads/" + req.body.filename;
+  var stat = fs.statSync(fileName);
+  console.log(stat["size"]);
+  var type =  mime.lookup(fileName);
+  var file = fs.createReadStream(fileName);
+  res.writeHead(200, {'Content-Type' : type, 'Content-Length' : stat["size"]});
+  file.pipe(res);
+  console.log("Should work");
 };
 
 global.post_release = function(req,res,next) {
