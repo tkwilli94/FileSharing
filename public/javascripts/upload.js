@@ -28,12 +28,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	
   $scope.download = function(file){
     if(file.filename != "none"){
-      $http.get('/download', file, function(data){
-        var iframe = document.createElement("iframe");
-        iframe.setAttribute("src", retData.url);
-        iframe.setAttribute("style", "display: none");
-        document.body.appendChild(iframe);
-      });
+      $http.post('/download', file);
     }
   }
 		
