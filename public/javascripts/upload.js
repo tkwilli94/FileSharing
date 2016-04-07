@@ -29,9 +29,7 @@ $scope.uploadFile = function(){
 
 
   $scope.getFiles();
-}])
-
-upload.directive('fileModel', ['$parse', function ($parse) {
+}]).directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
@@ -45,9 +43,7 @@ upload.directive('fileModel', ['$parse', function ($parse) {
             });
         }
     };
-}]);
-
-upload.service('fileUpload', ['$http', function ($http) {
+}]).service('fileUpload', ['$http', function ($http) {
     this.uploadFileToUrl = function(file, uploadUrl){
         var fd = new FormData();
         fd.append('file', file);
