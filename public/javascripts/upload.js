@@ -1,12 +1,11 @@
 angular.module('upload', [])
   .controller('uploadCtrl', [
-    '$scope', '$http',
-    function ($scope, $http) {
+    '$scope', '$http', 'fileUpload',
+    function ($scope, $http, fileUpload) {
 
   $scope.files = [];
 
   $scope.uploadFileData = function(){
-    var file = $scope.fileToUpload;
     var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
 	 "location": $scope.location, "copies":$scope.copies, "description":$scope.description});
     console.log(data);
