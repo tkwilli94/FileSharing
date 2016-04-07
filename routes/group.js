@@ -15,6 +15,3 @@ global.post_deleteGroup  = function(req,res,next) {
 global.get_getGroups  = function(req,res,next) {
 
 };
-
-console.log('included group.');
-

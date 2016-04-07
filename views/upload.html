@@ -9,6 +9,7 @@
 	<script src='javascripts/upload.js'></script>
 </head>
 <body ng-app='upload' ng-controller='uploadCtrl'>
+<div class="main-content">
 	<div class="header">
 		<a href="index.html"><div class="logo"><i class="fa fa-file"></i> File Sharing</div></a>
 		<div class="nav-bar"></div>
@@ -16,30 +17,49 @@
 	<!-- Image by Alan Levine (https://www.flickr.com/photos/cogdog/)
 		Shared under CC Attribution 2.0 Generic (CC BY 2.0) -->
 	<div class="upload-content">
-		<div class="file-hierarchy">files go here</div>
-		<div class="upload-area">
-			<div class="upload-form-element">File Name: <input type="text" ng-model="fileName"><span class="explainer">Leave blank if no file</span></div>
-			<div class="upload-form-element">Location: <input type="text" ng-model="location"></div>
-			<div class="upload-form-element">Available Copies: <input type="text" ng-model="copies"><span class="explainer">Leave blank if unlimited</span></div>
-                        <div class="upload-form-element">Description: <input type="text" ng-model="description"></div>
-			<div class="upload-form-element"><input type="file" file-model="fileToUpload"></div>
-			<div class="upload-form-element">
-				<select name="groups" id="groups" ng-model="selectedGroup">
-					<option ng-repeat="option in groupsData" value="{{option.id}}">{{option.name}}</option>
-				</select>
-			</div>
-			<!--Name
-			Owner
-			Group
-			Location
-			Tags -->
-			<div class="signup-button" ng-click='uploadFile()'>Upload</div>
-			<form enctype="multipart/form-data" action="/createItem" method="post">
-    			<input id="image-file" type="file" />
-				<input type='submit'>
-			</form>
+		<div class="file-hierarchy">
+			<div ng-repeat="file in files">
+				Document Name: {{file.documentname}}<br>
+				Location: {{file.location}}<br>
+				Copies Available: {{file.copies}}<br>
+				Description: {{file.description}}<br>
 			</div>
 		</div>
+		<div class="upload-area">
+			<div class="area-content">
+				<form>
+				<table>
+					<tr>
+						<td><div class="upload-form-element">Document Name:</div></td>
+						<td><input class="form-box" type="text" ng-model="file.documentName"></td>
+					</tr>
+					<tr>
+						<td><div class="upload-form-element">File Name:</div><span class="explainer">Leave blank if no file</span></td>
+						<td><input class="form-box" type="text" ng-model="file.fileName"></td>
+					</tr>
+					<tr>
+						<td><div class="upload-form-element">Location:</div></td>
+						<td><input class="form-box" type="text" ng-model="file.location"></td>
+					</tr>
+					<tr>
+						<td><div class="upload-form-element">Available Copies:</div><span class="explainer">Leave blank if unlimited</span></td>
+						<td><input class="form-box" type="text" ng-model="file.copies"></td>
+					</tr>
+					<tr>
+						<td><div class="upload-form-element">Description:</div></td>
+						<td><input class="form-box" type="text" ng-model="file.description"></td>
+					</tr>
+					<tr>
+						<td><input type="file" file-model="file.file"/></td>
+						<td><div class="signup-button" ng-click='uploadFile()'>Upload</div></td>
+					</tr>
+				</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="push"></div>
+</div>
 	<div class="footer">Copyright info</div>
 </body>
 </html>

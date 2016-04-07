@@ -66,6 +66,7 @@ a {
 	width: 175px;
 	display: inline-block;
 	margin: 20px;
+	text-align: center;
 }
 
 .signup-button:hover {
@@ -142,6 +143,12 @@ a {
 	font-size: 30px;
 	display: block;
 	position: relative;
+	line-height: 45px;
+}
+
+.form-box {
+	font-size: 20px;
+	float: right;
 }
 
 .upload-content {
@@ -165,4 +172,32 @@ a {
 .explainer {
   display: inline-block;
   font-size: 12px;
+}
+
+.area-content {
+	margin: 20px;
+}
+
+td {
+	padding-right: 20px;
+}
+
+table.signup-table {
+	margin: auto;
+}
+
+.main-content {
+	min-height: 100%;
+	margin: 0 auto -40px;
+}
+
+.footer, .push {
+	height: 40px;
+}
+
+.footer {
+	background-color: #39424E;
+	color: white;
+	text-align: center;
+	line-height: 40px;
 }
