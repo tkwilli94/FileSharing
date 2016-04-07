@@ -32,11 +32,17 @@ global.post_download = function(req,res,next) {
   console.log(req.body);
   var fileName = "./uploads/" + req.body.filename;
   console.log(fileName);
-  var file = fs.createReadStream(fileName);
-  res.writeHead(200);
-  file.pipe(res);
+  fs.readFile(fileName, function(err, content){
+    if(err){
+      console.log("error");
+      res.writeHead(500);
+      res.end();
+    }else{
+      res.writeHead(200);
+      res.end(content);
+    }
+  })
   console.log("Tried to pipe file");
-  res.end();
 };
 
 global.post_release = function(req,res,next) {
