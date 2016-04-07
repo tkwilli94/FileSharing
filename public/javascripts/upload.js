@@ -26,11 +26,12 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 		})
 	};
 	
-	$scope.submitFile = function() {
-		
-	}
+  $scope.download(file){
+    console.log(file):
+  }
 		
 	$scope.getFiles();
+  }
 }]);
 
 uploadModule.directive('fileModel', ['$parse', function ($parse) {
@@ -57,6 +58,6 @@ uploadModule.service('fileUpload', ['$http', function ($http) {
 		$http.post('/upload', fd, {
 			transformRequest: angular.identity,
 			headers: {'Content-Type': undefined}
-		})
+		})  
     }
 }]);
