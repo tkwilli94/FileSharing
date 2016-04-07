@@ -30,9 +30,8 @@ global.post_deleteItem = function(req,res,next) {
 
 };
 global.post_download = function(req,res) {
-  console.log(req.body);
-  var fileName = "/uploads/" + req.body.filename;
-  res.redirect(fileName);
+  var fileName = "./uploads/" + req.body.filename;
+  res.sendfile(fileName);
   /*var stat = fs.statSync(fileName);
   console.log(stat["size"]);
   var type =  mime.lookup(fileName);

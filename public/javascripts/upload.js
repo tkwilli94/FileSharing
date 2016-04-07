@@ -1,6 +1,6 @@
 var uploadModule = angular.module('upload', []);
 
-uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function ($scope, $http, fileUpload) {
+uploadModule.controller('uploadCtrl', ['$scope', '$http', '$window', 'fileUpload', function ($scope, $http, $window, fileUpload) {
 	$scope.files = [];
 	$scope.file = {};
 
@@ -28,7 +28,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	
   $scope.download = function(file){
     if(file.filename != "none"){
-      $http.post('/download', file);
+	$window.location.href = '/uploads/' + file.filename;
     }
   }
 		
