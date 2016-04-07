@@ -11,8 +11,12 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	$scope.uploadFile = function(){
 		var file = $scope.myFile;
 		console.dir(file);
-		var uploadUrl = "I'm not using this. Maybe it will be useful later."
-        fileUpload.uploadFileToUrl(file, uploadUrl);
+    fileUpload.uploadFileToUrl(file, uploadUrl);
+    var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
+    "location": $scope.location, "copies":$scope.copies, "description":$scope.description});
+    console.log(data);
+    $http.post('/createItem', data);
+    $scope.getFiles();
     };
 
 	$scope.getFiles = function(){
@@ -53,19 +57,5 @@ uploadModule.service('fileUpload', ['$http', function ($http) {
 			transformRequest: angular.identity,
 			headers: {'Content-Type': undefined}
 		})
-
-    var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
-    "location": $scope.location, "copies":$scope.copies, "description":$scope.description});
-    console.log(data);
-    $http.post('/createItem', data);
-    $scope.getFiles();
-		/*
-        for(var key in data){
-          fd.append(key, data[key]);
-        }
-        $http.post(uploadUrl, fd, {
-            transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
-        })*/
     }
 }]);
