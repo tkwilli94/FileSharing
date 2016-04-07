@@ -28,6 +28,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	
   $scope.download = function(file){
     console.log(file);
+    $http.post('/download', file);
   }
 		
 	$scope.getFiles();

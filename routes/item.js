@@ -31,7 +31,7 @@ global.post_deleteItem = function(req,res,next) {
 
 };
 global.post_download = function(req,res,next) {
-
+  console.log(req.body);
 };
 global.post_release = function(req,res,next) {
 
