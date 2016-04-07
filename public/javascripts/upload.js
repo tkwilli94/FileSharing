@@ -31,7 +31,6 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
   }
 		
 	$scope.getFiles();
-  }
 }]);
 
 uploadModule.directive('fileModel', ['$parse', function ($parse) {
