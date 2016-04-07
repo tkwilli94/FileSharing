@@ -1,7 +1,23 @@
 var express = require('express');
+var crypto = require('crypto');
 var router = express.Router();
 var fs = require('fs');
 var multiparty = require('multiparty');
+var util = require('util');
+var mime = require('mime');
+var multer = require('multer');
+
+var storage = multer.diskStorage({
+	destination: './uploads/',
+	filename: function (req, file, cb) {
+		crypto.pseudoRandomBytes(16, function (err,raw) {
+			if (err) return cb(err);
+
+			cb(null, file.originalname);
+		});
+	}
+})
+var upload = multer({ storage: storage });
 
 
 var isLoggedin = function (req, res, next){}
@@ -25,21 +41,10 @@ module.exports = function(passport) {
      res.sendfile('views/mytest.html');
     });
 	
-	router.post('/upload', function(req, res) {
-		console.log('In upload route');
-		console.log("REQ BODY:\n" + req.file);
-		var form = new multiparty.Form();
-		var file = form.get('file');
-		console.log('file');
-		form.parse(req, function(err, fields, files) {
-			console.log("FILEEEEEE!: " + files.toString());
-			fs.writeFile(__dirname + "/Android.jpg", req.file, (err)=> {
-				if(err) res.sendStatus(403);
-				console.log('It\'s saved!');
-				res.sendStatus(200);
-			});
-		});
-
+	router.post('/upload', upload.any(), function(req, res, next) {
+		console.log("req.body");
+		console.log(req.files);
+		res.json({success: true});
 	});
 
     /* GET home page. */

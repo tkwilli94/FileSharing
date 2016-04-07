@@ -11,7 +11,7 @@ var myApp = angular.module('myApp', []);
 		  element.bind('change', function(){
 				console.log("IM IN SOPT TWO");
 				scope.$apply(function(){
-				modelSetter(scope, element[0].files[0]);
+					modelSetter(scope, element[0].files[0]);
 			 });
 		  });
 	   }
