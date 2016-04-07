@@ -38,7 +38,7 @@ global.post_download = function(req,res,next) {
       res.writeHead(500);
       res.end();
     }else{
-      res.writeHead(200);
+      res.writeHead(200, {'Content-Type' : undefined});
       res.end(content);
     }
   })
