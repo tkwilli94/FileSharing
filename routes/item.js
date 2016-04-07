@@ -31,14 +31,15 @@ global.post_deleteItem = function(req,res,next) {
 };
 global.post_download = function(req,res) {
   console.log(req.body);
-  var fileName = "/home/bitnami/FileSharing/uploads/" + req.body.filename;
-  var stat = fs.statSync(fileName);
+  var fileName = "/uploads/" + req.body.filename;
+  res.redirect(fileName);
+  /*var stat = fs.statSync(fileName);
   console.log(stat["size"]);
   var type =  mime.lookup(fileName);
   var file = fs.createReadStream(fileName);
   res.writeHead(200, {'Content-Type' : type,  'Content-Length' : stat["size"]});
   file.pipe(res);
-  console.log("Should work");
+  console.log("Should work");*/
 };
 
 global.post_release = function(req,res,next) {

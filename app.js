@@ -20,6 +20,7 @@ app.set('view engine', 'jade');
 //Serve our custom static files
 app.use('/css',express.static(path.join(__dirname, 'views/css')));
 app.use('/images',express.static(path.join(__dirname, 'views/images')));
+app.use('/uploads',express.static(path.join(__dirname, 'uploads')));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
