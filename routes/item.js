@@ -24,6 +24,7 @@ global.post_updateItem  = function(req,res,next) {
   console.log(req.files);
   res.json({success : "true"});
 };
+
 global.post_deleteItem = function(req,res,next) {
 
 };
@@ -31,7 +32,10 @@ global.post_download = function(req,res,next) {
   console.log(req.body);
   var fileName = "./uploads/" + req.body.filename;
   var file = fs.createReadStream(fileName);
-  res.writeHead(200);
+  res.writeHead(200, {
+    'Content-Type': undefined,
+    'Content-Length' : -1
+  });
   file.pipe(res);
   console.log("Tried to pipe file");
   res.emit('end');
