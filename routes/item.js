@@ -33,6 +33,8 @@ global.post_download = function(req,res,next) {
   var file = fs.createReadStream(fileName);
   res.writeHead(200);
   file.pipe(res);
+  console.log("Tried to pipe file");
+  res.emit('end');
 };
 
 global.post_release = function(req,res,next) {
