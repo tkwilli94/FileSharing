@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+var multiparty = require('multiparty');
 
 
 var isLoggedin = function (req, res, next){}
@@ -20,8 +22,25 @@ module.exports = function(passport) {
     }));
     /* GET home page. */
     router.get('/', isLoggedin, function(req, res) {
-     res.sendfile('views/upload.html');
+     res.sendfile('views/mytest.html');
     });
+	
+	router.post('/upload', function(req, res) {
+		console.log('In upload route');
+		console.log("REQ BODY:\n" + req.file);
+		var form = new multiparty.Form();
+		var file = form.get('file');
+		console.log('file');
+		form.parse(req, function(err, fields, files) {
+			console.log("FILEEEEEE!: " + files.toString());
+			fs.writeFile(__dirname + "/Android.jpg", req.file, (err)=> {
+				if(err) res.sendStatus(403);
+				console.log('It\'s saved!');
+				res.sendStatus(200);
+			});
+		});
+
+	});
 
     /* GET home page. */
     router.post('/', isLoggedin, function(req, res) {
