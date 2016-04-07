@@ -4,6 +4,7 @@ angular.module('upload', [])
     function ($scope, $http, fileUpload) {
 
   $scope.files = [];
+  $scope.file = {};
 
   $scope.uploadFileData = function(){
     var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
@@ -14,19 +15,14 @@ angular.module('upload', [])
   }
 
 $scope.uploadFile = function(){
-        var file = $scope.myFile;
-        console.log('file is ' );
-        console.dir(file);
         var uploadUrl = "/updateItem";
-        fileUpload.uploadFileToUrl(file, uploadUrl);
+        fileUpload.uploadFileToUrl(uploadUrl, );
     };
 
   $scope.getFiles = function(){
 	return $http.get('/searchItems').success(function(data){
         angular.copy(data, $scope.files);
   })};
-
-
 
   $scope.getFiles();
 }]).directive('fileModel', ['$parse', function ($parse) {
@@ -44,18 +40,14 @@ $scope.uploadFile = function(){
         }
     };
 }]).service('fileUpload', ['$http', function ($http) {
-    this.uploadFileToUrl = function(file, uploadUrl){
+    this.uploadFileToUrl = function(uploadUrl, data){
         var fd = new FormData();
-        fd.append('file', file);
+        for(var key in data){
+          fd.append(key, data[key]);
+        }
         $http.post(uploadUrl, fd, {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         })
-        .success(function(){
-          console.log("success");
-        })
-        .error(function(){
-          console.log("failure");
-        });
     }
 }]);

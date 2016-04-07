@@ -27,33 +27,34 @@
 		</div>
 		<div class="upload-area">
 			<div class="area-content">
+				<form>
 				<table>
 					<tr>
 						<td><div class="upload-form-element">Document Name:</div></td>
-						<td><input class="form-box" type="text" ng-model="documentName"></td>
+						<td><input class="form-box" type="text" ng-model="file.documentName"></td>
 					</tr>
 					<tr>
 						<td><div class="upload-form-element">File Name:</div><span class="explainer">Leave blank if no file</span></td>
-						<td><input class="form-box" type="text" ng-model="fileName"></td>
+						<td><input class="form-box" type="text" ng-model="file.fileName"></td>
 					</tr>
 					<tr>
 						<td><div class="upload-form-element">Location:</div></td>
-						<td><input class="form-box" type="text" ng-model="location"></td>
+						<td><input class="form-box" type="text" ng-model="file.location"></td>
 					</tr>
 					<tr>
 						<td><div class="upload-form-element">Available Copies:</div><span class="explainer">Leave blank if unlimited</span></td>
-						<td><input class="form-box" type="text" ng-model="copies"></td>
+						<td><input class="form-box" type="text" ng-model="file.copies"></td>
 					</tr>
 					<tr>
 						<td><div class="upload-form-element">Description:</div></td>
-						<td><input class="form-box" type="text" ng-model="description"></td>
+						<td><input class="form-box" type="text" ng-model="file.description"></td>
+					</tr>
+					<tr>
+						<td><input type="file" file-model="file.myFile"/></td>
+						<td><div class="signup-button" ng-click='uploadFile()'>Upload</div></td>
 					</tr>
 				</table>
-				<div class="signup-button" ng-click='uploadFileData()'>Submit</div>
-				<div>
-    				<input type="file" file-model="myFile"/>
-    				<div class="signup-button" ng-click='uploadFile()'>Upload</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</div>
