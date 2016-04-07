@@ -23,6 +23,7 @@ global.post_createItem  = function(req,res,next) {
 };
 
 global.post_updateItem  = function(req,res,next) {
+  console.log("update called");
   console.log(req.body);
 };
 global.post_deleteItem = function(req,res,next) {
