@@ -21,6 +21,7 @@ global.post_createItem  = function(req,res,next) {
         console.log('File Registration succesful' + newFile);
     });
 };
+
 global.post_updateItem  = function(req,res,next) {
   console.log(req.body);
 };

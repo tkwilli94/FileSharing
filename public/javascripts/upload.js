@@ -10,6 +10,7 @@ angular.module('upload', [])
 	 "location": $scope.location, "copies":$scope.copies, "description":$scope.description});
     console.log(data);
     $http.post('/createItem', data);
+    $scope.getFiles();
   }
 
 $scope.uploadFile = function(){
