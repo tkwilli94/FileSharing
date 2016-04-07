@@ -9,6 +9,7 @@
         <script src='javascripts/login.js'></script>
 </head>
 <body ng-app='login' ng-controller='LoginCtrl'>
+<div class="main-content">
 	<div class="header">
 		<a href="index.html"><div class="logo"><i class="fa fa-file"></i> File Sharing</div></a>
 		<div class="nav-bar"></div>
@@ -17,10 +18,20 @@
 		Shared under CC Attribution 2.0 Generic (CC BY 2.0) -->
 	<div class="main">
 		<div class="main-text">Welcome back!</div>
-		<div class="signup-form-element">Username(Email): <input type="text" ng-model="username"></div>
-		<div class="signup-form-element">Password: <input type="password" ng-model="password"></div>
+		<table class="signup-table">
+			<tr>
+				<td><div class="signup-form-element">Username (Email):</div></td>
+				<td><input type="text" ng-model="username"></td>
+			</tr>
+			<tr>
+				<td><div class="signup-form-element">Password:</div></td>
+				<td><input type="password" ng-model="password"></td>
+			</tr>
+		</table>
 		<div class="login-button" ng-click="login()">Log in</div>
 	</div>
+	<div class="push"></div>
+</div>
 	<div class="footer">Copyright info</div>
 </body>
 </html>

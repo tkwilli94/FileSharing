@@ -44,26 +44,15 @@
 						<td><input class="form-box" type="text" ng-model="copies"></td>
 					</tr>
 					<tr>
-						<td><div class="upload-form-element">Description:</div><span class="explainer">Leave blank if no file</span></td>
+						<td><div class="upload-form-element">Description:</div></td>
 						<td><input class="form-box" type="text" ng-model="description"></td>
 					</tr>
 				</table>
-				<div class="upload-form-element"><input type="file" file-model="fileToUpload"></div>
-				<div class="upload-form-element">
-					<select name="groups" id="groups" ng-model="selectedGroup">
-						<option ng-repeat="option in groupsData" value="{{option.id}}">{{option.name}}</option>
-					</select>
+				<div class="signup-button" ng-click='uploadFileData()'>Submit</div>
+				<div>
+    				<input type="file" file-model="myFile"/>
+    				<div class="signup-button" ng-click='uploadFile()'>Upload</div>
 				</div>
-				<!--Name
-				Owner
-				Group
-				Location
-				Tags -->
-				<div class="signup-button" ng-click='uploadFile()'>Upload</div>
-				<form enctype="multipart/form-data" action="/createItem" method="post">
-	    			<input id="image-file" type="file" />
-					<input type='submit'>
-				</form>
 			</div>
 			</div>
 		</div>

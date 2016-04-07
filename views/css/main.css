@@ -185,3 +185,19 @@ td {
 table.signup-table {
 	margin: auto;
 }
+
+.main-content {
+	min-height: 100%;
+	margin: 0 auto -40px;
+}
+
+.footer, .push {
+	height: 40px;
+}
+
+.footer {
+	background-color: #39424E;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+}
