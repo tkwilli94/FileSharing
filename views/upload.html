@@ -23,6 +23,7 @@
 				Location: {{file.location}}<br>
 				Copies Available: {{file.copies}}<br>
 				Description: {{file.description}}<br>
+				<div class="signup-button" ng-click="download()">Download</div>
 			</div>
 		</div>
 		<div class="upload-area">
@@ -34,7 +35,7 @@
 						<td><input class="form-box" type="text" ng-model="documentName"></td>
 					</tr>
 					<tr>
-						<td><div class="upload-form-element">File Name:</div><span class="explainer">Leave blank if no file</span></td>
+						<td><div class="upload-form-element">File Name:</div><span class="explainer">Match file name exactly. Type none if no file</span></td>
 						<td><input class="form-box" type="text" ng-model="fileName"></td>
 					</tr>
 					<tr>
