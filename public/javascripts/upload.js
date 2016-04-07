@@ -11,6 +11,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	$scope.uploadFile = function(){
 		var file = $scope.myFile;
 		console.dir(file);
+	var uploadUrl = " ";
     fileUpload.uploadFileToUrl(file, uploadUrl);
     var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
     "location": $scope.location, "copies":$scope.copies, "description":$scope.description});

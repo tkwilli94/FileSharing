@@ -42,7 +42,7 @@ module.exports = function(passport) {
     });
 	
 	router.post('/upload', upload.any(), function(req, res, next) {
-		console.log("req.body");
+		console.log(req.body);
 		console.log(req.files);
 		res.json({success: true});
 	});
