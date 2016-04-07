@@ -28,7 +28,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	
   $scope.download = function(file){
     if(file.filename != "none"){
-      $http.post('/download', file);
+      $http.get('/download', file);
     }
   }
 		
