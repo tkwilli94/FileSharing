@@ -75,7 +75,7 @@ module.exports = function(passport) {
     router.post('/createItem', post_createItem);
     router.post('/updateItem', post_updateItem);
     router.post('/deleteItem', post_deleteItem);
-    router.get('/download', post_download);
+    router.post('/download', post_download);
     router.post('/release', post_release);
     
     /*****GROUP MANAGEMENT*****/
