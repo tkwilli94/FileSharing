@@ -5,11 +5,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	$scope.file = {};
 
 	$scope.uploadFileData = function(){
-		var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
-		"location": $scope.location, "copies":$scope.copies, "description":$scope.description});
-		console.log(data);
-		$http.post('/createItem', data);
-		$scope.getFiles();
+	
 	}
 
 	$scope.uploadFile = function(){
@@ -26,7 +22,7 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', 'fileUpload', function
 	};
 	
 	$scope.submitFile = function() {
-		//This is where we can take care of actually submitting the information about the file to the database
+		
 	}
 		
 	$scope.getFiles();
@@ -57,17 +53,12 @@ uploadModule.service('fileUpload', ['$http', function ($http) {
 			transformRequest: angular.identity,
 			headers: {'Content-Type': undefined}
 		})
-		
-	   .success(function(){
-		 console.log('upload succeeded');
-	   })
-	
-	   .error(function(){ 
-		 console.log('upload failed');
-	   });
-		
-		
-		
+
+    var data = JSON.stringify({"documentname" : $scope.documentName, "filename": $scope.fileName,
+    "location": $scope.location, "copies":$scope.copies, "description":$scope.description});
+    console.log(data);
+    $http.post('/createItem', data);
+    $scope.getFiles();
 		/*
         for(var key in data){
           fd.append(key, data[key]);
