@@ -5,9 +5,6 @@ global.post_createItem  = function(req,res,next) {
    var newFile = new File();
    console.log(req.body);
    newFile.filename = req.body.filename;
-   if(!fs.existsSync("./files/" + req.session.passport.user)){
-   		fs.mkdir("./files/" + req.session.passport.user, function(err){console.log(err)})
-   }
    newFile.documentname = req.body.documentname;
    newFile.location = req.body.location;
    newFile.owner = req.session.passport.user;
@@ -32,7 +29,12 @@ global.post_deleteItem = function(req,res,next) {
 };
 global.post_download = function(req,res,next) {
   console.log(req.body);
+  var fileName = "./uploads/" + req.body.filename;
+  var file = fs.createReadStream(fileName);
+  res.writeHead(200);
+  file.pipe(res);
 };
+
 global.post_release = function(req,res,next) {
 
 };
