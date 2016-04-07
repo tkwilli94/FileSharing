@@ -16,7 +16,7 @@ angular.module('upload', [])
 
 $scope.uploadFile = function(){
         var uploadUrl = "/updateItem";
-        fileUpload.uploadFileToUrl(uploadUrl, );
+        fileUpload.uploadFileToUrl(uploadUrl, file);
     };
 
   $scope.getFiles = function(){
