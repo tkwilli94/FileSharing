@@ -30,12 +30,10 @@ global.post_deleteItem = function(req,res,next) {
 
 };
 global.post_download = function(req,res) {
-  res.writeHead(200);
-  res.end;
-  /*console.log(req.body);
+  console.log(req.body);
   var fileName = "./home/bitnami/FileSharing/uploads/" + req.body.filename;
   res.download(fileName);
-  var stat = fs.statSync(fileName);
+  /*var stat = fs.statSync(fileName);
   console.log(stat["size"]);
   var type =  mime.lookup(fileName);
   var file = fs.createReadStream(fileName);
