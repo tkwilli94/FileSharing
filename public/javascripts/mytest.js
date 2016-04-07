@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('upload', []);
  
  myApp.directive('fileModel', ['$parse', function ($parse) {
 	return {
@@ -39,7 +39,7 @@ var myApp = angular.module('myApp', []);
 	}
  }]);
 
- myApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
+ myApp.controller('uploadCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
 	$scope.uploadFile = function(){
 	    console.log("IM IN SOPT FIVE");
 		var file = $scope.myFile;

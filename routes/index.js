@@ -38,7 +38,7 @@ module.exports = function(passport) {
     }));
     /* GET home page. */
     router.get('/', isLoggedin, function(req, res) {
-     res.sendfile('views/mytest.html');
+     res.sendfile('views/upload.html');
     });
 	
 	router.post('/upload', upload.any(), function(req, res, next) {
