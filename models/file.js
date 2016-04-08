@@ -11,10 +11,7 @@ documentname: String,
 })
 
 FileSchema.methods.decrement = function(cb){
-	console.log("Decrementing");
-	console.log(this);
 	this.copies -= 1;
-	console.log(this);
 	this.save(cb);
 }
 
