@@ -13,8 +13,9 @@ body {
 	height: 100%;
 }
 
-a {
+a, a:link, a:visited, a:hover, a:active {
 	text-decoration: none;
+	color: white;
 }
 
 .header {
@@ -30,6 +31,8 @@ a {
 	font-size: 45px;
 	padding-left: 30px;
 	color: white;
+	width: 295px;
+	display: inline-block;
 }
 
 .logo:hover {
@@ -38,6 +41,26 @@ a {
 
 .logo:visited {
 	text-decoration: none;
+	color: white;
+}
+
+.nav-bar {
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+}
+
+.nav-bar ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+.nav-bar li {
+	display: inline;
+	padding-right: 25px;
+	font-size: 20px;
 }
 
 .main {
