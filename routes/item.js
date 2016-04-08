@@ -21,10 +21,11 @@ global.post_createItem  = function(req,res,next) {
 };
 
 global.post_updateItem  = function(req,res,next) {
-  req.file.decrement(function(err, file){
-    if(err) {console.log(err)}
-    res.json(file);
-  })
+   File.findOne({filename: req.body.filename}, function(err, file){
+    file.decrement(function(err){
+      if(err){console.log(err)};
+    })
+   })
 };
 
 global.post_deleteItem = function(req,res,next) {
