@@ -30,7 +30,9 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', '$window', 'fileUpload
     if(file.filename != "none"){
        file.copies -= 1;
        $http.post('/updateItem', file);
-	     $window.location.href = '/uploads/' + file.filename;
+       if(file.copies > 0){
+	       $window.location.href = '/uploads/' + file.filename;
+       }
     }
   }
 		
