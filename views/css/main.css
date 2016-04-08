@@ -244,3 +244,9 @@ table.signup-table {
 		min-height: 100px;
 	}
 }
+
+@media (max-width: 360px) {
+	.logo {
+		font-size: 30px;
+	}
+}
