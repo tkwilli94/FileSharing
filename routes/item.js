@@ -21,9 +21,10 @@ global.post_createItem  = function(req,res,next) {
 };
 
 global.post_updateItem  = function(req,res,next) {
-  console.log(req.body);
-  console.log(req.files);
-  res.json({success : "true"});
+  req.file.decrement(function(err, file){
+    if(err) {console.log(err)}
+    res.json(file);
+  })
 };
 
 global.post_deleteItem = function(req,res,next) {

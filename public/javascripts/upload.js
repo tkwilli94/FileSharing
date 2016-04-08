@@ -28,7 +28,9 @@ uploadModule.controller('uploadCtrl', ['$scope', '$http', '$window', 'fileUpload
 	
   $scope.download = function(file){
     if(file.filename != "none"){
-	$window.location.href = '/uploads/' + file.filename;
+       file.copies -= 1;
+       $http.post('/updateItem/, file');
+	     $window.location.href = '/uploads/' + file.filename;
     }
   }
 		
