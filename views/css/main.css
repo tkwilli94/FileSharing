@@ -152,16 +152,18 @@ a {
 }
 
 .upload-content {
-	min-height: 100%;
+	height: 100%;
 	width: 100%;
 }
 
 .file-hierarchy {
+	box-sizing: border-box;
 	height: 100%;
-	width: 27%;
+	width: 30%;
 	border-right: 2px black solid;
 	float: left;
 	padding: 20px 10px;
+	overflow-y: auto;
 }
 
 .file-desc {
@@ -173,9 +175,12 @@ a {
 }
 
 .upload-area {
+	box-sizing: border-box;
 	height: 100%;
-	width: 68%;
+	width: 70%;
 	display: inline-block;
+	padding: 20px 10px;
+	overflow-y: auto;
 }
 
 .explainer {
@@ -196,7 +201,7 @@ table.signup-table {
 }
 
 .main-content {
-	min-height: 100%;
+	height: 100%;
 	margin: 0 auto -40px;
 }
 
