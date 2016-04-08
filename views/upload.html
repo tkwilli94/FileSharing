@@ -19,11 +19,16 @@
 	<div class="upload-content">
 		<div class="file-hierarchy">
 			<div ng-repeat="file in files">
-				Document Name: {{file.documentname}}<br>
-				File : {{file.filename}}<br>
-				Location: {{file.location}}<br>
-				Copies Available: {{file.copies}}<br>
-				Description: {{file.description}}<br>
+				<div class="file-desc">Document Name:</div>
+				<div class="file-info">{{file.documentname}}</div>
+				<div class="file-desc">File:</div>
+				<div class="file-info">{{file.filename}}</div>
+				<div class="file-desc">Location:</div>
+				<div class="file-info">{{file.location}}</div>
+				<div class="file-desc">Copies Available:</div>
+				<div class="file-info">{{file.copies}}</div>
+				<div class="file-desc">Description:</div>
+				<div class="file-info">{{file.description}}</div>
 				<div class="signup-button" ng-click="download(file)">Download</div>
 			</div>
 		</div>

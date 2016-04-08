@@ -152,20 +152,29 @@ a {
 }
 
 .upload-content {
-	height: 100%;
+	min-height: 100%;
 	width: 100%;
 }
 
 .file-hierarchy {
 	height: 100%;
-	width: 29%;
+	width: 27%;
 	border-right: 2px black solid;
 	float: left;
+	padding: 20px 10px;
+}
+
+.file-desc {
+	font-weight: bold;
+}
+
+.file-info {
+	padding-left: 10px;
 }
 
 .upload-area {
 	height: 100%;
-	width: 70%;
+	width: 68%;
 	display: inline-block;
 }
 
